@@ -26,6 +26,7 @@ CORS(
     app,
     supports_credentials=True,
     origins=[
+        "https://madurai-iyal.vercel.app",
         "https://thiviyashree24.github.io",
         "http://localhost:5173",
         "http://127.0.0.1:5173",
@@ -34,13 +35,15 @@ CORS(
     ],
 )
 def get_db_connection():
-    """Create a MySQL database connection."""
+    """Create a secure MySQL database connection."""
     return mysql.connector.connect(
         host=os.getenv("DB_HOST", "127.0.0.1"),
         port=int(os.getenv("DB_PORT", "3307")),
         database=os.getenv("DB_NAME", "maduraiiyal_db"),
         user=os.getenv("DB_USER", "root"),
         password=os.getenv("DB_PASSWORD", ""),
+        ssl_ca=os.getenv("DB_SSL_CA") or None,
+        ssl_verify_cert=bool(os.getenv("DB_SSL_CA")),
     )
 @app.route("/", methods=["GET"])
 def home():

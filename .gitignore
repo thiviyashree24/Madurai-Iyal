@@ -38,3 +38,5 @@ __pycache__/
 
 # Database backups
 *.sql
+
+backend/ca.pem
