@@ -26,6 +26,7 @@ CORS(
     app,
     supports_credentials=True,
     origins=[
+        "https://thiviyashree24.github.io",
         "http://localhost:5173",
         "http://127.0.0.1:5173",
         "http://localhost:5174",
@@ -443,7 +444,7 @@ def chat():
             }
         }
         req = urllib.request.Request(
-            "http://127.0.0.1:11434/api/chat",
+            f"{os.getenv('OLLAMA_BASE_URL', 'http://127.0.0.1:11434').rstrip('/')}/api/chat",
             data=json.dumps(payload).encode("utf-8"),
             headers={"Content-Type": "application/json"},
             method="POST"
@@ -479,6 +480,9 @@ if __name__ == "__main__":
         port=5000,
         debug=True
     )
+
+
+
 
 
 
