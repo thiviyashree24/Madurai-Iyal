@@ -1,0 +1,37 @@
+
+backend/.env
+
+# Dependencies and virtual environments
+node_modules/
+.venv/
+venv/
+
+# Build outputs
+frontend/dist/
+dist/
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+backend/.env
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local backups
+backup-vaigai-*/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Temporary source backups
+*.backup
+*.before_*
+*.trip-planner-backup
+
+# Python backup files
+*_backup.py
+*_before_*.py

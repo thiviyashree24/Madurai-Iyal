@@ -1,0 +1,348 @@
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 20px;
+  background:
+    radial-gradient(ellipse at top left, rgba(185, 130, 57, 0.15), transparent 42%),
+    linear-gradient(135deg, #f8f2e8 0%, #fffdf8 50%, #f2e6d5 100%);
+  font-family: "Manrope", sans-serif;
+  box-sizing: border-box;
+}
+
+.auth-card {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  padding: 42px;
+  background: rgba(255, 253, 248, 0.96);
+  border: 1px solid rgba(132, 35, 45, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 24px 70px rgba(71, 35, 27, 0.13);
+  box-sizing: border-box;
+  animation: auth-appear 0.45s ease both;
+}
+
+.auth-back {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #eadfd0;
+  border-radius: 50%;
+  background: #fffaf2;
+  color: #74232d;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.auth-back:hover {
+  background: #f0e3d2;
+  transform: rotate(90deg);
+}
+
+.auth-brand {
+  color: #792631;
+  font-family: "Noto Serif", Georgia, serif;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.auth-eyebrow {
+  margin: 10px 0 12px;
+  color: #a57a36;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2.4px;
+}
+
+.auth-card h1 {
+  margin: 0;
+  color: #3b2020;
+  font-family: "Noto Serif", Georgia, serif;
+  font-size: clamp(27px, 5vw, 35px);
+  line-height: 1.25;
+}
+
+.auth-subtitle {
+  margin: 12px 0 25px;
+  color: #776b61;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  padding: 5px;
+  margin-bottom: 25px;
+  background: #f0e7db;
+  border-radius: 12px;
+}
+
+.auth-tabs button {
+  padding: 12px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #75665d;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.auth-tabs button.active {
+  background: #792631;
+  color: #fffaf1;
+  box-shadow: 0 4px 12px rgba(121, 38, 49, 0.18);
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.auth-card form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #4b3830;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.auth-card form input {
+  width: 100%;
+  min-height: 47px;
+  padding: 12px 14px;
+  border: 1px solid #e4d8ca;
+  border-radius: 10px;
+  outline: none;
+  background: #fffefa;
+  color: #392b27;
+  font-family: inherit;
+  font-size: 13px;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.auth-card form input::placeholder {
+  color: #b0a398;
+}
+
+.auth-card form input:focus {
+  border-color: #a77b37;
+  box-shadow: 0 0 0 3px rgba(167, 123, 55, 0.13);
+}
+
+.auth-submit {
+  width: 100%;
+  min-height: 49px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: 11px;
+  background: linear-gradient(115deg, #70212c, #963b40);
+  color: #fffaf1;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(112, 33, 44, 0.18);
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+
+.auth-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(112, 33, 44, 0.25);
+}
+
+.auth-submit:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.auth-error,
+.auth-success {
+  margin: 0;
+  padding: 11px 12px;
+  border-radius: 9px;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.auth-error {
+  border: 1px solid #efc5c5;
+  background: #fff0f0;
+  color: #a12323;
+}
+
+.auth-success {
+  border: 1px solid #c8dfc7;
+  background: #f0f8ed;
+  color: #28622e;
+}
+
+.auth-footer {
+  margin: 25px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid #eee3d5;
+  color: #918175;
+  font-family: "Noto Serif", Georgia, serif;
+  font-size: 11px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+@keyframes auth-appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 18px 12px;
+  }
+
+  .auth-card {
+    padding: 34px 23px;
+    border-radius: 19px;
+  }
+
+  .auth-brand {
+    font-size: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auth-card {
+    animation: none;
+  }
+
+  .auth-back,
+  .auth-tabs button,
+  .auth-card form input,
+  .auth-submit {
+    transition: none;
+  }
+}
+
+/* Login popup: prevent nested scrolling */
+.auth-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: rgba(35, 20, 18, 0.78);
+  box-sizing: border-box;
+}
+
+.auth-overlay .auth-page {
+  width: 100%;
+  min-height: auto;
+  padding: 0;
+  background: transparent;
+}
+
+.auth-overlay .auth-card {
+  margin: auto;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* ========================================
+   MADURAIYAL — Premium Maroon & Gold Scrollbar
+======================================== */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5eee3;
+  border-left: 1px solid rgba(121, 38, 49, 0.08);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #c5a15b 0%,
+    #9c7135 45%,
+    #792631 100%
+  );
+  border: 2px solid #f5eee3;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #e1c27c 0%,
+    #a77b3d 45%,
+    #5e1822 100%
+  );
+}
+
+::-webkit-scrollbar-corner {
+  background: #f5eee3;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #9c7135 #f5eee3;
+}
+
+/* Smooth page scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Premium scrollbar inside the Login/Register popup */
+.auth-overlay,
+.auth-overlay .auth-card {
+  scrollbar-width: thin;
+  scrollbar-color: #9c7135 #f5eee3;
+}
+
+.auth-overlay::-webkit-scrollbar,
+.auth-overlay .auth-card::-webkit-scrollbar {
+  width: 7px;
+}
+
+.auth-overlay::-webkit-scrollbar-track,
+.auth-overlay .auth-card::-webkit-scrollbar-track {
+  background: rgba(245, 238, 227, 0.8);
+  border-radius: 999px;
+}
+
+.auth-overlay::-webkit-scrollbar-thumb,
+.auth-overlay .auth-card::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #c5a15b, #792631);
+  border: 1px solid #f5eee3;
+  border-radius: 999px;
+}
