@@ -35,3 +35,6 @@ __pycache__/
 # Python backup files
 *_backup.py
 *_before_*.py
+
+# Database backups
+*.sql
