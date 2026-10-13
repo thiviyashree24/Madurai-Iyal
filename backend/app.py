@@ -447,12 +447,15 @@ def chat():
                 "num_predict": 220
             }
         }
-        req = urllib.request.Request(
-            f"{os.getenv('OLLAMA_BASE_URL', 'http://127.0.0.1:11434').rstrip('/')}/api/chat",
-            data=json.dumps(payload).encode("utf-8"),
-            headers={"Content-Type": "application/json"},
-            method="POST"
-        )
+      req = urllib.request.Request(
+    f"{os.getenv('OLLAMA_BASE_URL', 'http://127.0.0.1:11434').rstrip('/')}/api/chat",
+    data=json.dumps(payload).encode("utf-8"),
+    headers={
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {os.getenv('OLLAMA_PROXY_TOKEN', '')}"
+    },
+    method="POST"
+)
 
         with urllib.request.urlopen(req, timeout=180) as response:
             result = json.loads(response.read().decode("utf-8"))
