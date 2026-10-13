@@ -26,6 +26,7 @@ CORS(
     app,
     supports_credentials=True,
     origins=[
+         "https://madurai-iyal-oiskdt7bm-madurai-iyal.vercel.app",
         "https://madurai-iyal.vercel.app",
         "https://thiviyashree24.github.io",
         "http://localhost:5173",
