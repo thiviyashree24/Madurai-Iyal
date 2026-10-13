@@ -395,6 +395,7 @@ def chat():
         if connection is not None and connection.is_connected():
             connection.close()
 
+
     try:
         system_prompt = (
             "You are Vaigai, a helpful and accurate local tourism guide for Madurai, Tamil Nadu. "
@@ -447,20 +448,22 @@ def chat():
                 "num_predict": 220
             }
         }
-      req = urllib.request.Request(
-    f"{os.getenv('OLLAMA_BASE_URL', 'http://127.0.0.1:11434').rstrip('/')}/api/chat",
-    data=json.dumps(payload).encode("utf-8"),
-    headers={
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {os.getenv('OLLAMA_PROXY_TOKEN', '')}"
-    },
-    method="POST"
-)
+
+        req = urllib.request.Request(
+            f"{os.getenv('OLLAMA_BASE_URL', 'http://127.0.0.1:11434').rstrip('/')}/api/chat",
+            data=json.dumps(payload).encode("utf-8"),
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": f"Bearer {os.getenv('OLLAMA_PROXY_TOKEN', '')}"
+            },
+            method="POST"
+        )
 
         with urllib.request.urlopen(req, timeout=180) as response:
             result = json.loads(response.read().decode("utf-8"))
 
         answer = result.get("message", {}).get("content", "").strip()
+
         if not answer:
             return jsonify({
                 "error": "Vaigai could not generate a response. Please try again."
@@ -479,8 +482,6 @@ def chat():
                 "Please check whether Ollama is running."
             )
         }), 502
-
-
 if __name__ == "__main__":
     app.run(
         host="127.0.0.1",
