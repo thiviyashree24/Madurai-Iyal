@@ -553,7 +553,7 @@ const [currentUser, setCurrentUser] = useState<AuthUser | null>(null);
 const [apiPlaces, setApiPlaces] = useState<Place[]>([]);
 
 useEffect(() => {
-  fetch("http://localhost:5000/api/me", {
+  fetch(`${import.meta.env.VITE_API_BASE_URL}/api/me`, {
   method: "GET",
   credentials: "include",
   cache: "no-store",
@@ -646,7 +646,7 @@ useEffect(() => {
     setIsChatLoading(true);
 
     try {
-const response = await fetch("http://localhost:5000/api/chat", {
+const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -929,13 +929,13 @@ const apiPlace = apiPlaces.find(
   className="auth-nav-button"
   onClick={async () => {
     try {
-      const response = await fetch(
-       "http://localhost:5000/api/logout",
-        {
-          method: "POST",
-          credentials: "include",
-          cache: "no-store",
-        }
+   const response = await fetch(
+  `${import.meta.env.VITE_API_BASE_URL}/api/logout`,
+  {
+    method: "POST",
+    credentials: "include",
+    cache: "no-store",
+  }
       );
       if (!response.ok) {
         throw new Error("Logout failed");

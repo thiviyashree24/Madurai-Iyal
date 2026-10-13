@@ -47,7 +47,7 @@ export default function AuthPage({ onClose, onLogin }: AuthPageProps) {
             };
 
           const response = await fetch(
-       `${import.meta.env.VITE_API_BASE_URL || "http://localhost:5000"}${endpoint}`,
+       `${import.meta.env.VITE_API_BASE_URL || "https://madurai-iyal.onrender.com"}${endpoint}`,
         {
           method: "POST",
           credentials: "include",
